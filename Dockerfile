@@ -1,10 +1,10 @@
-FROM kalinux/kali-linux-docker:latest
+FROM kalilinux/kali-linux-docker:latest
 
 LABEL mantainer="qiyingwangwqy@gmail.com"
 
 RUN apt-get -y update && \
-    apt-get -y install kali-linux-full && \
-    apt-get -y install locales-all xfce4 xfce4-terminal vnc4server tightvncserver -y && \
+    apt-get -y install --fix-missing kali-linux-full && \
+    apt-get -y install --fix-missing locales-all xfce4 xfce4-terminal vnc4server tightvncserver -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     echo "root:root" | chpasswd  && \
